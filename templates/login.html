@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="login_body">
+
+<div class="login-container">
+    <h1>Giriş Yap</h1>
+
+    <!-- Giriş Formu -->
+    <form method="POST" action="{{ url_for('main.login') }}"> <!-- action düzeltildi -->
+        <label for="email">E-posta:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Şifre:</label>
+        <input type="password" name="password" id="password" required>
+
+        <button type="submit">Giriş Yap</button>
+    </form>
+
+    <!-- Hata ve Başarı Mesajları -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-message {{ messages[0][0] }}">
+                {{ messages[0][1] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <p>Hesabınız yok mu? <a href="{{ url_for('main.register') }}">Kayıt Ol</a></p>
+</div>
+
+</body>
+</html>

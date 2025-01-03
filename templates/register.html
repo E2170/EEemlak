@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="kayıtol">
+
+<div class="login-container">
+    <h1>Kayıt Ol</h1>
+
+    <!-- Kayıt Ol Formu -->
+    <form method="POST" action="{{ url_for('main.register') }}">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="email">E-posta:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="password">Şifre:</label>
+        <input type="password" name="password" id="password" required>
+
+        <label for="confirm_password">Şifre Tekrar:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+
+        <button type="submit">Kayıt Ol</button>
+    </form>
+
+    <!-- Hata ve Başarı Mesajları -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-message {{ messages[0][0] }}">
+                {{ messages[0][1] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <p>Zaten hesabınız var mı? <a href="{{ url_for('main.login') }}">Giriş Yap</a></p>
+</div>
+
+</body>
+</html>

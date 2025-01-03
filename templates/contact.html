@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>İletişim</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/EE3.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<header class="header_a">
+    <img id="emlaklogo" src="{{ url_for('static', filename='images/EE3.png') }}" alt="logo">
+    <h1 class="bslk">EE Emlak</h1>
+    <nav class="nav_a">
+        <a href="/">Ana Sayfa</a>
+        <a href="/add-listing">İlan Ekle</a>
+    </nav>
+</header>
+<body class="body_c">
+    <header class="header_c">
+        <h1 class="baslik_c">İletişim</h1>
+        <img id="contactlogo" src="{{ url_for('static', filename='images/contact2.jpg') }}" alt="logo">
+    </header>
+    {% if success %}
+    <p class="p_c">Mesajınız başarıyla gönderildi!</p>
+    {% endif %}
+    <form class="form_c" method="POST">
+        <label class="lbl_c" for="name">Adınız:</label>
+        <input class="inpt_c" type="text" name="name" id="name" required><br>
+        <label class="lbl_c" for="email">E-posta:</label>
+        <input class="inpt_c" type="email" name="email" id="email" required><br>
+        <label class="lbl_c" for="message">Mesaj:</label>
+        <textarea class="textarea_c" name="message" id="message" required></textarea><br>
+        <div class="button_container">
+            <button class="btn_c" type="submit">Gönder</button>
+            <a class="btn_cc btn_link" href="/">Anasayfa</a>    
+        </div>
+    </form>
+</body>
+<footer class="footer_a">
+    <p>&copy; 2024 EE Emlak by Osman Erdoğan </p>
+</footer>
+</html>

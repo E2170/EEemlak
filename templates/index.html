@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/EE3.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="sayfa">
+    <header class="header_a">
+        <img id="emlaklogo" src="{{ url_for('static', filename='images/EE3.png') }}" alt="logo">
+        <h1 class="bslk">EE Emlak</h1>
+        <nav class="nav_a">
+            <a href="/">Ana Sayfa</a>
+            <a href="/add-listing">İlan Ekle</a>
+            <a href="/contact">İletişim</a>
+        </nav>
+    </header>
+    <main class="main_a">
+        <h2 class="bslk">Tüm İlanlar</h2>
+        <ul class="ul_a">
+            {% for listing in listings %}
+            <li><a href="/listings/{{ listing.id }}">{{ listing.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer class="footer_a">
+        <p>&copy; 2024 EE Emlak by Osman Erdoğan </p>
+    </footer>
+</body>
+</html>
